@@ -329,10 +329,10 @@ class AdvCrossModalSimple(BaseModel):
             #        cPickle.dump(self.emb_w_eval, f, cPickle.HIGHEST_PROTOCOL)                    
     def eval_random_rank(self):
         start = time.time()
-        #with open('./data/wikipedia_dataset/test_labels.pkl', 'rb') as fpkl:
-        #    test_labels = cPickle.load(fpkl)
-        with open('./data/wiki_shallow/L_te.pkl', 'rb') as fpkl:
-            test_labels = cPickle.load(fpkl)
+        with open('./data/wikipedia_dataset/test_labels.pkl', 'rb') as fpkl:
+           test_labels = cPickle.load(fpkl)
+#         with open('./data/wiki_shallow/L_te.pkl', 'rb') as fpkl:
+#             test_labels = cPickle.load(fpkl)
         k = self.model_params.top_k
         avg_precs = []
         for i in range(len(test_labels)):
@@ -375,10 +375,10 @@ class AdvCrossModalSimple(BaseModel):
         test_img_feats_trans = np.asarray(test_img_feats_trans)
         test_txt_vecs_trans = np.asarray(test_txt_vecs_trans)
         test_feats_trans = np.concatenate((test_img_feats_trans[0:1000], test_txt_vecs_trans[-1000:]))
-        #with open('./data/wikipedia_dataset/test_feats_transformed.pkl', 'wb') as f:
-        #    cPickle.dump(test_feats_trans, f, cPickle.HIGHEST_PROTOCOL)        
-        with open('./data/wiki_shallow/test_feats_transformed.pkl', 'wb') as f:
-            cPickle.dump(test_feats_trans, f, cPickle.HIGHEST_PROTOCOL)                   
+        with open('./data/wikipedia_dataset/test_feats_transformed.pkl', 'wb') as f:
+           cPickle.dump(test_feats_trans, f, cPickle.HIGHEST_PROTOCOL)        
+#         with open('./data/wiki_shallow/test_feats_transformed.pkl', 'wb') as f:
+#             cPickle.dump(test_feats_trans, f, cPickle.HIGHEST_PROTOCOL)                   
         print('[Eval] transformed test features in %4.4f' % (time.time() - start))
         #k = self.model_params.top_k
         avg_precs = []
@@ -414,10 +414,10 @@ class AdvCrossModalSimple(BaseModel):
             all_precs.append(mean_avg_prec)
         print('[Eval - txt2img] mAP: %f in %4.4fs' % (all_precs[0], (time.time() - start)))
         t2i = all_precs[0]
-        #with open('./data/wikipedia_dataset/txt2img_all_precision.pkl', 'wb') as f:
-        #    cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)     
-        with open('./data/wiki_shallow/txt2img_all_precision.pkl', 'wb') as f:
-            cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)                  
+        with open('./data/wikipedia_dataset/txt2img_all_precision.pkl', 'wb') as f:
+           cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)     
+#         with open('./data/wiki_shallow/txt2img_all_precision.pkl', 'wb') as f:
+#             cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)                  
 
         avg_precs = []
         all_precs = []
@@ -454,28 +454,28 @@ class AdvCrossModalSimple(BaseModel):
 
         
         
-        #with open('./data/wikipedia_dataset/text_words_map.pkl', 'wb') as f:
-        #    cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)
-        with open('./data/wiki_shallow/text_words_map.pkl', 'wb') as f:
-            cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)        
+        with open('./data/wikipedia_dataset/text_words_map.pkl', 'wb') as f:
+           cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)
+#         with open('./data/wiki_shallow/text_words_map.pkl', 'wb') as f:
+#             cPickle.dump(all_precs, f, cPickle.HIGHEST_PROTOCOL)        
         #Text query    
 
-        #with open('./data/wikipedia_dataset/text_words_map.pkl', 'rb') as f:
-        #    txt_words = cPickle.load(f)
-        #with open('./data/wikipedia_dataset/test_img_words.pkl', 'rb') as f:
-        #    img_words = cPickle.load(f)
-        #with open('./data/wikipedia_dataset/test_txt_files.pkl', 'rb') as f:
-        #    test_txt_names = cPickle.load(f)
-        #with open('./data/wikipedia_dataset/test_img_files.pkl', 'rb') as f:
-        #    test_img_names = cPickle.load(f)   
         with open('./data/wikipedia_dataset/text_words_map.pkl', 'rb') as f:
-            txt_words = cPickle.load(f)
+           txt_words = cPickle.load(f)
         with open('./data/wikipedia_dataset/test_img_words.pkl', 'rb') as f:
-            img_words = cPickle.load(f)
+           img_words = cPickle.load(f)
         with open('./data/wikipedia_dataset/test_txt_files.pkl', 'rb') as f:
-            test_txt_names = cPickle.load(f)
+           test_txt_names = cPickle.load(f)
         with open('./data/wikipedia_dataset/test_img_files.pkl', 'rb') as f:
-            test_img_names = cPickle.load(f)                                                    
+           test_img_names = cPickle.load(f)   
+#         with open('./data/wikipedia_dataset/text_words_map.pkl', 'rb') as f:
+#             txt_words = cPickle.load(f)
+#         with open('./data/wikipedia_dataset/test_img_words.pkl', 'rb') as f:
+#             img_words = cPickle.load(f)
+#         with open('./data/wikipedia_dataset/test_txt_files.pkl', 'rb') as f:
+#             test_txt_names = cPickle.load(f)
+#         with open('./data/wikipedia_dataset/test_img_files.pkl', 'rb') as f:
+#             test_img_names = cPickle.load(f)                                                    
          # Precision-scope for text query
         scope = 100
         retrieval_results = []
