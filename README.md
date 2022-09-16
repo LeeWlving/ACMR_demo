@@ -6,10 +6,7 @@ To run the demo:
     python train_adv_crossmodal_simple_wiki.py # with contrastive loss
     python train_adv_crossmodal_triplet_wiki.py # with triplet loss
 
-We have prepared the data in the "./data" folder. If you have any question, please contact Bokun Wang at csbkwang@gmail.com. 
+We have prepared the data in the "./data" folder. If you have any question, please contact Bokun Wang at leewlving@gmail.com. 
+The code has corrected some error in the original code, please run it on the python2 + tensorflow1. There are some problem in python3, please reference at
+https://blog.csdn.net/qian1996/article/details/100939766?spm=1001.2014.3001.5502
 
-If you use the codes, please cite the following two papers: 
-
-[1]  Li He, Xing Xu, Huimin Lu, Yang Yang, Fumin Shen and Heng Tao Shen.  "Unsupervised Cross-modal Retrieval through Adversarial Learning". IEEE International Conference on Multimedia and Expo (ICME), 2017. 
-
-[2]  Bokun Wang, Yang Yang, Xing Xu, Alan Hanjalic, and Heng Tao Shen. "Adversarial Cross-Modal Retrieval". In Proceedings of 25th ACM International Conference on Multimedia (ACM MM), 2017.
